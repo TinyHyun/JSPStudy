@@ -22,6 +22,7 @@
 		<param-name>INIT_PARAM</param-name>
 		<param-value>web.xml에 저장한 초기화 매개변수</param-value>
 	</context-param>
+
 	
 	<!-- 
 	웹애플리케이션에서 에러(예외) 발생시 처리할 페이지를 지정한다.
@@ -48,6 +49,39 @@
 		<location>/02ImplicitObject/Exception.jsp</location>
 	</error-page>
 	-->
+	
+	<!-- 
+	오라클 접속정보를 컨텍스트 초기화 파라미터로 설정한다.
+	해당 정보는 application 내장객체를 통해 값을 읽을 수 있다.
+	-->
+	<context-param>
+		<param-name>OracleDriver</param-name>
+		<param-value>oracle.jdbc.OracleDriver</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>OracleURL</param-name>
+		<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>OracleId</param-name>
+		<param-value>musthave</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>OraclePwd</param-name>
+		<param-value>1234</param-value>
+	</context-param>
+	
+	<!-- 
+	세션유지시간 설정
+	: web.xml에서는 분단위로 지정한다.
+	-->
+	<session-config>
+   	<session-timeout>20</session-timeout>
+	</session-config>
+	
 </web-app>
 
 
