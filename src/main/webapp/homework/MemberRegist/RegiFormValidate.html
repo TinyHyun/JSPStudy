@@ -99,7 +99,7 @@ function formValidate(frm){
 
     //폼 검증이 끝난후 서버로 전송 직후 로딩 이미지를 띄워준다. 
     document.getElementById("id_loading").style.display = 'block';
-    return false;
+    //return false;
 }
 
 function inputEmail(frm){
@@ -182,7 +182,7 @@ function postOpen(){
 </script>
 </head>
 <body>
-    <form name="myform" action="registAction.jsp" method="post" onsubmit="return formValidate(this);">
+    <form name="myform" action="registActionT.jsp" method="post" onsubmit="return formValidate(this);">
         <table class="userTable">
             <colgroup>
                 <col width="130px" />
@@ -234,8 +234,8 @@ function postOpen(){
                         <option value="hanmail.net">hanmail.net</option>
                         <option value="직접입력" selected>직접입력</option>
                     </select>
-                    <label><input type="radio" name="mailing" value="yes" />수신허용</label>
-                    <label><input type="radio" name="mailing" value="no" />수신불가</label>
+                    <label><input type="radio" name="mailing" value="Y" />수신허용</label>
+                    <label><input type="radio" name="mailing" value="N" />수신불가</label>
                 </td>
             </tr>
             <tr>
@@ -269,8 +269,8 @@ function postOpen(){
                     <input type="text" name="mobile2" value="" class="userInput w40" maxlength="4" onkeyup="focusMove(this,'mobile3',4);"/> -
                     <input type="text" name="mobile3" value="" class="userInput w40" maxlength="4" />
                     <span style="margin-left:20px;"></span>
-                    <label><input type="radio" name="sms" value="yes" />SMS 수신허용</label>
-                    <label><input type="radio" name="sms" value="no" />SMS 수신불가</label>
+                    <label><input type="radio" name="sms" value="Y" />SMS 수신허용</label>
+                    <label><input type="radio" name="sms" value="N" />SMS 수신불가</label>
                 </td>
             </tr>
         </table>
