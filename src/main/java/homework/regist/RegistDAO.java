@@ -41,4 +41,39 @@ public class RegistDAO extends JDBConnect {
 		
 		return result;
 	}
+	
+	public boolean idCheck(String id) {
+		
+		String query = "SELECT * FROM regist_member "
+					+ " WHERE id=? ";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				return false;
+			}
+		}
+		catch (Exception e) {
+			System.out.println("아이디 중복 확인 중 예외가 발생했습니다.");
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
