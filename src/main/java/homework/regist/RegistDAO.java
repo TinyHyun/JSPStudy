@@ -42,26 +42,40 @@ public class RegistDAO extends JDBConnect {
 		return result;
 	}
 	
-	public boolean idCheck(String id) {
+	
+	//아이디 중복 확인을 위한 메서드 정의
+	public boolean idOverlap(String id) {
+	
+		//초기값은 true로 설정 => 중복된 아이디가 없는 경우
+		boolean retValue = true;
 		
-		String query = "SELECT * FROM regist_member "
-					+ " WHERE id=? ";
+		//중복된 아이디가 있는지 확인하기 위한 쿼리문
+		String sql = "SELECT  COUNT(*) FROM regist_member WHERE id=?";
 		
 		try {
-			psmt = con.prepareStatement(query);
+			//prepared 객체 생성 및 인파라미터 설정
+			psmt = con.prepareStatement(sql);
 			psmt.setString(1, id);
+			//select계열의 쿼리문이므로 반환값은 ResultSet
 			rs = psmt.executeQuery();
 			
-			if (rs.next()) {
-				return false;
+			//count()함수를 사용하므로 결과는 무조건 0 혹은 1
+			//따라서 if()문을 사용할 필요없이 next()를 호출한다.
+			rs.next();
+			
+			int result = rs.getInt(1);
+			
+			//중복된 아이디가 있어 1이 반환되면 false를 반환한다.
+			if (result == 1) {
+				retValue = false;
 			}
 		}
 		catch (Exception e) {
-			System.out.println("아이디 중복 확인 중 예외가 발생했습니다.");
 			e.printStackTrace();
 		}
 		
-		return true;
+		//중복된 아이디가 없다면 0이므로 true를 반환한다.
+		return retValue;
 	}
 }
 
