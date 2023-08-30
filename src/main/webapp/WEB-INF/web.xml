@@ -108,13 +108,13 @@
 	<!-- 한 페이지에 출력할 게시물의 갯수 걸정: 10개씩 출력 -->
 	<context-param>
 		<param-name>POSTS_PER_PAGE</param-name>
-		<param-value>10</param-value>
+		<param-value>2</param-value>
 	</context-param>
 	
 	<!-- 한 블럭당 출력할 페이지 번호의 갯수 설정: 5페이지씩 출력 -->
 	<context-param>
 		<param-name>PAGES_PER_BLOCK</param-name>
-		<param-value>5</param-value>
+		<param-value>2</param-value>
 	</context-param>
 	
 	
@@ -175,6 +175,16 @@
 		<url-pattern>/12Servlet/MemberAuth.mvc</url-pattern>
 	</servlet-mapping>
 	
+	
+	
+	<servlet>
+		<servlet-name>MVCBoardList</servlet-name>
+		<servlet-class>model2.mvcboard.ListController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MVCBoardList</servlet-name>
+		<url-pattern>/mvcboard/list.do</url-pattern>
+	</servlet-mapping>
 </web-app>
 
 
