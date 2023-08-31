@@ -82,8 +82,20 @@ public class FileUtil {
 		return newFileName;
 	}
 	
-	
-//	public static ArrayList<String>
+	//첨부파일 삭제
+	public static void deleteFile(HttpServletRequest req, String direvtory, String filename) {
+		
+		//파일이 저장된 디렉토리의 물리적 경로 가져오기
+		String sDirectory = req.getServletContext().getRealPath(direvtory);
+		
+		//저장된 파일의 경로를 통해 File 객체를 생성
+		File file = new File(sDirectory + File.separator + filename);
+		
+		//해당 경로에 파일이 있으면 삭제한다.
+		if (file.exists()) {
+			file.delete();
+		}
+	}
 }
 
 
