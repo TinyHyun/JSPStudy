@@ -30,14 +30,22 @@
     </tr>
     <tr>
         <td>내용</td>
-        <td colspan="3" height="100">${ dto.content }</td>
+        <td colspan="3" height="100">
+        	${ dto.content }
+        	<c:if test="${ not empty dto.ofile and isImage eq true }">
+        		<br />
+        		<img src="../Uploads/${ dto.sfile }" style="max-width: 100%;" />
+        	</c:if>
+        	
+        </td>
     </tr> 
     <tr>
         <td>첨부파일</td>
         <td>            
         	<c:if test="${ not empty dto.ofile }">
+        		${ dto.ofile }
         		<a href="../mvcboard/download.do?ofile=${ dto.ofile }
-        		&sfile=${ dto.sfile }&idx=${ dto.idx }">[다운로드]</a>
+        			&sfile=${ dto.sfile }&idx=${ dto.idx }">[다운로드]</a>
         	</c:if>           
         </td>
          <td>다운로드수</td>
