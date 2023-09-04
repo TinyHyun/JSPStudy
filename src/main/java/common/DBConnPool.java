@@ -26,7 +26,7 @@ public class DBConnPool {
     public ResultSet rs; //select했을 때 실행결과를 반환
 	
     /*
-    커넥션풀 설정을 위해 context.xml, server.xml 파일에 엘리먼트를 추각해야한다. (교안이나 책 참조)
+    커넥션풀 설정을 위해 context.xml, server.xml 파일에 엘리먼트를 추가해야한다. (교안이나 책 참조)
     */
     
     public DBConnPool() {
