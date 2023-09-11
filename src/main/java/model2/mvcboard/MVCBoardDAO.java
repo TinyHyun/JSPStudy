@@ -262,6 +262,7 @@ public class MVCBoardDAO extends DBConnPool {
 			psmt.executeQuery();
 		}
 		catch (Exception e) {
+			System.out.println("다운로드 횟수 증가 중 예외발생");
 			e.printStackTrace();
 		}
     }
